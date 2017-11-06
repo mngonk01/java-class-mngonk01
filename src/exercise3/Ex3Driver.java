@@ -1,94 +1,131 @@
 package exercise3;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.*;
+import java.io.*;
 /**
  *
- * @author yasiro01
+ * @author mngonk01
  */
 public class Ex3Driver {
-  public static final String PATH = "data/";
-  /**
-   * main application function
-   * @param args 
-   */
-  public static void main(String[] args) {
-    int[][] matrix1 = null;
-    int[][] matrix2 = null;
-    int[][] result = null;
-    try {
-      matrix1 = readFile(PATH + "matrix1.txt");
-      matrix2 = readFile(PATH + "matrix2.txt");
-    } catch (FileNotFoundException ex) {
-      Logger.getLogger(Ex3Driver.class.getName()).log(Level.SEVERE, ex.toString(), ex);
-    }
-    System.out.println("Matrix 1");
-    printMatrix(matrix1);
-    System.out.println("Matrix 2");
-    printMatrix(matrix2);
-    if (matrix1[0].length == matrix2.length) {
-      result = multiply(matrix1, matrix2);
-    } else {
-      Logger.getLogger(Ex3Driver.class.getName()).log(Level.SEVERE, "{0}", "Impossible to multiply matrices");
-      System.exit(0);
-    }
-    System.out.println("Result");
-    printMatrix(result);
-    try {
-      writeMatrix(result, PATH + "result.txt");
-    } catch (FileNotFoundException ex) {
-      Logger.getLogger(Ex3Driver.class.getName()).log(Level.SEVERE, ex.toString(), ex);
-    }
-  }
-  /**
-   * Print a matrix
-   * @param matrix to print
-   */
-  public static void printMatrix(int[][] matrix) {
-    for (int[] row: matrix) {
-      for (int item: row) {
-        System.out.printf("%5d", item);
-      }
-      System.out.printf("%n");
-    }
-  }
-  /**
-   * Write a matrix to the file
-   * @param matrix 
-   * @param filename 
-   * @throws java.io.FileNotFoundException 
-   */
-  public static void writeMatrix(int[][] matrix, String filename) throws FileNotFoundException {
-    throw new UnsupportedOperationException();
-  }
-  /**
-   * Read a matrix from a file
-   * @param filename
-   * @return matrix read from a file
-   * @throws java.io.FileNotFoundException
-   */
-  public static int[][] readFile(String filename) throws FileNotFoundException {
-    throw new UnsupportedOperationException();
-    /*
-    10. Open the input file and create a Scanner object to read its content
-    20. Read two values (rows and columns) from the first line, if possible
-    30. Create a new 2-D array
-    40. Read data from the file, one line at a time, using the Scanner object
-    50. Split each line into individual tokens and put them into your array
-    60. Return the array
-    */
-  }
-  /**
-   * Multiply two matrices
-   * @param matrix1
-   * @param matrix2
-   * @return the resulting matrix
-   */
-  public static int[][] multiply(int[][] matrix1, int[][] matrix2) {
-    throw new UnsupportedOperationException();
-  }
+  // main method
+	public static void main(String[] args) {
+		// Scanner object to read from file "matrix1.txt"
+		Scanner reader1 = null;
+		
+		try {
+			// open matrix1.txt file
+			reader1 = new Scanner(new File("matrix1.txt"));
+		} catch (FileNotFoundException e) {
+			// if file does not exist
+			System.out.println("Error: could not open file 'matrix1.txt'");
+			return;
+		}
+		
+		// Scanner object to read from file "matrix2.txt"
+		Scanner reader2 = null;
+		
+		try {
+			// open matrix2.txt file
+			reader2 = new Scanner(new File("matrix2.txt"));
+		} catch (FileNotFoundException e) {
+			// if file does not exist
+			System.out.println("Error: could not open file 'matrix2.txt'");
+			// close matrix1.txt file
+			reader1.close();
+			return;
+		}
+		
+		// read size of matrix1
+		int m = reader1.nextInt();
+		int n = reader1.nextInt();
+		
+		// read size of matrix2
+		int p = reader2.nextInt();
+		int q = reader2.nextInt();
+		
+		// print the size of the matrix in each file
+		System.out.println("size of matrix1: " + m + " x " + n);
+		System.out.println("size of matrix2: " + p + " x " + q);
+		
+		// check if the input matrices can be multiplied
+		if (n != p) {
+			// print error message
+			System.out.println("Error: number of columns in matrix1 is not equal to number of rows in matrix2");
+			// close matrix1.txt
+			reader1.close();
+			// close matrix2.txt
+			reader2.close();
+		}
+		
+		// create 2-D array for matrix1
+		int[][] matrix1 = new int[m][n];
+		
+		// read contents of matrix1 from file
+		for (int i = 0; i < m; i++) {
+			for (int j = 0; j < n; j++) {
+				matrix1[i][j] = reader1.nextInt();
+			}
+		}
+		
+		// close matrix1.txt
+		reader1.close();
+		
+		// create 2-D array for matrix2
+		int[][] matrix2 = new int[p][q];
+		
+		// read contents of matrix2 from file
+		for (int i = 0; i < p; i++) {
+			for (int j = 0; j < q; j++) {
+				matrix2[i][j] = reader2.nextInt();
+			}
+		}
+		
+		// close matrix2.txt
+		reader2.close();
+		
+		// create 2-D array for storing multiplication of matrix1 and matrix2
+		int[][] matrix3 = new int[m][q];
+		
+		// implement the matrix multiplication algorithm
+		for (int i = 0; i < m; i++) {
+			for (int j = 0; j < q; j++) {
+				matrix3[i][j] = 0;
+				
+				for (int k = 0; k < n; k++) {
+					matrix3[i][j] = matrix3[i][j] + matrix1[i][k]*matrix2[k][j];
+				}
+			}
+		}
+		
+		// PrintWriter object to write to file "matrix3.txt"
+		PrintWriter writer = null;
+		
+		try {
+			// open "matrix3.txt" file
+			writer = new PrintWriter(new File("matrix3.txt"));
+		} catch (FileNotFoundException e) {
+			// if file does not exist
+			System.out.println("Error: could not open file 'matrix3.txt'");
+			return;
+		}
+		
+		// write size of matrix3
+		writer.println(m + " " + q);
+		
+		// write the matrix3 to the file
+		for (int i = 0; i < m; i++) {
+			for (int j = 0; j < q; j++) {
+				if (j != 0) {
+					writer.print(" ");
+				}
+				
+				writer.print(matrix3[i][j]);
+			}
+			
+			writer.println();
+		}
+		
+		// close matrix3.txt
+		writer.close();
+	}
 }
