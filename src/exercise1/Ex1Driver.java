@@ -141,7 +141,7 @@ public class Ex1Driver {
    * @param numbers
    * @return 
    */
-  public static int task8(int[] numbers) {
+  public static int task8(int [] numbers) {
     System.out.println("\n---Task 8---");
     for (int i=0; i<numbers.length; i++){
         i += numbers[i];
@@ -154,13 +154,11 @@ public class Ex1Driver {
         if (word.charAt(i-1) > word.charAt(i)){
             return false;
         }
-      }
       return true;
   int[] b = null;
   System.out.println("\nSum = " + calculateSum(b));
   }
-
-    
+  
   /**
    * TODO: Task 9: Ask a user to enter a word and write a function that tells if letters of a word are ordered (ie. "buy" would return true, while "bye" - false).
      * @param word
@@ -177,11 +175,7 @@ public class Ex1Driver {
     }
     return true;
      }
-
-    private static String calculateSum(int[] b) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    if (isOrdered(word)){
+   if (isOrdered(word)){
       System.out.println("Word letters are ordered");
     } else {
       System.out.println("Word letters are not ordered");
