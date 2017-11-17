@@ -1,5 +1,6 @@
 package exercise6;
 
+
 import java.util.HashSet;
 import java.util.Scanner;
 
@@ -48,3 +49,4 @@ public class KangarooMob {
         KangarooMob kangaroo1 = new KangarooMob("zoo2.txt");
     }
 }
+

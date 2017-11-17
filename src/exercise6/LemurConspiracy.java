@@ -1,5 +1,6 @@
 package exercise6;
 
+<<<<<<< HEAD
 import java.util.HashSet;
 import java.util.Scanner;
 
@@ -47,4 +48,11 @@ public class LemurConspiracy {
         LemurConspiracy lemur = new LemurConspiracy("zoo1.txt");
         LemurConspiracy lemur1 = new LemurConspiracy("zoo2.txt");
     }
+=======
+/**
+ * Class LemurConspiracy
+ * @author yasiro01
+ */
+public class LemurConspiracy {
+>>>>>>> 1bdcbc89116c0a96986d2880daee73a48df9a144
 }

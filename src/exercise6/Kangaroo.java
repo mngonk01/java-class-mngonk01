@@ -1,5 +1,6 @@
 package exercise6;
 
+<<<<<<< HEAD
 import java.util.Objects;
 
 /**
@@ -67,4 +68,11 @@ public class Kangaroo {
     }
     
     
+=======
+/**
+ * Class Kangaroo
+ * @author yasiro01
+ */
+public class Kangaroo {
+>>>>>>> 1bdcbc89116c0a96986d2880daee73a48df9a144
 }

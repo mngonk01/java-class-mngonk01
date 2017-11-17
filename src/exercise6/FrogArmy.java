@@ -1,5 +1,6 @@
 package exercise6;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -47,4 +48,11 @@ public class FrogArmy {
        FrogArmy frog = new FrogArmy("zoo1.txt");
        FrogArmy frog1 = new FrogArmy("zoo2.txt");
     }
+=======
+/**
+ * Class FrogArmy
+ * @author yasiro01
+ */
+public class FrogArmy {
+>>>>>>> 1bdcbc89116c0a96986d2880daee73a48df9a144
 }

@@ -1,5 +1,6 @@
 package exercise6;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -47,4 +48,11 @@ public class CrowMurder {
         CrowMurder crow = new CrowMurder("zoo1.txt");
         CrowMurder crow1 = new CrowMurder("zoo2.txt");
     }
+=======
+/**
+ * Class CrowMurder
+ * @author yasiro01
+ */
+public class CrowMurder {
+>>>>>>> 1bdcbc89116c0a96986d2880daee73a48df9a144
 }
