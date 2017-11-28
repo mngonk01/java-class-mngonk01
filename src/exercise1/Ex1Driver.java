@@ -24,7 +24,7 @@ public class Ex1Driver {
     task6();
     task7();
     task8(numbers);
-    task9();
+//    task9();
     task10();
   }
 
@@ -155,8 +155,8 @@ public class Ex1Driver {
             return false;
         }
       return true;
-  int[] b = null;
-  System.out.println("\nSum = " + calculateSum(b));
+//  int[] b = null;
+  //System.out.println("\nSum = " + calculateSum(b));
   }
   
   /**
@@ -164,10 +164,10 @@ public class Ex1Driver {
      * @param word
    * @return 
    */
-  public static boolean isOrdered(String word) {
-    System.out.println("\n---Task 9---");
+//  public static boolean isOrdered(String word) {
+  //  System.out.println("\n---Task 9---");
     System.out.print("\nEnter a word: ");
-    String word = keyboard.next();
+ //   String word = keyboard.next();
         for (int i=1; i<word.length(); i++){
         if (word.charAt(i-1) > word.charAt(i)){
             return false;
@@ -175,11 +175,11 @@ public class Ex1Driver {
     }
     return true;
      }
-   if (isOrdered(word)){
-      System.out.println("Word letters are ordered");
-    } else {
-      System.out.println("Word letters are not ordered");
-}
+//   if (isOrdered(word)){
+  //    System.out.println("Word letters are ordered");
+  //  } else {
+ //     System.out.println("Word letters are not ordered");
+//}
   /**
    * TODO: Task 10: Implement sieve of Eratosthenes and print all prime numbers between 1 and 100
    */
