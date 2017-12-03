@@ -4,7 +4,7 @@ package quizzes;
  * Class Borogove
  * @author yasiro01
  */
-public class Borogove {
+public class Borogove  {
   private final String b1;
   private Grimoire bg;
 

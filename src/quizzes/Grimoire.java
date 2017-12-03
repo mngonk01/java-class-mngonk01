@@ -4,7 +4,7 @@ package quizzes;
  * Class Grimoire
  * @author yasiro01
  */
-public class Grimoire {
+public class Grimoire  {
   private int g1;
   private int g2;
 
@@ -17,8 +17,8 @@ public class Grimoire {
     this.g1 = g1;
     this.g2 = g2;
   }
-  
-  public int getG1() {
+
+    public int getG1() {
     return g1;
   }
 
